@@ -1,0 +1,1631 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>بوابة إصدار الخطابات الرسمية - شركة نايس كير | NICE CARE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0f2c59;
+      --navy-dark: #091d3d;
+      --crimson: #8b1e2b;
+      --crimson-soft: #a62837;
+      --bg-app: #eef2f7;
+      --surface: #ffffff;
+      --surface-muted: #f8fafc;
+      --border: #dbe3ee;
+      --text-main: #111827;
+      --text-muted: #4b5563;
+      --shadow-card: 0 10px 30px rgba(15, 44, 89, 0.08);
+      --shadow-paper: 0 18px 45px rgba(15, 23, 42, 0.14);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-app);
+      color: var(--text-main);
+      font-family: 'Cairo', 'Tajawal', sans-serif;
+      line-height: 1.55;
+    }
+
+    /* Top Navigation & Header */
+    .top-bar {
+      background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 65%, #18417e 100%);
+      color: #ffffff;
+      padding: 14px 24px;
+      box-shadow: 0 4px 18px rgba(9, 29, 61, 0.22);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .top-bar-inner {
+      max-width: 1320px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .brand-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-badge {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      font-size: 16px;
+      letter-spacing: 0.5px;
+    }
+
+    .brand-title h1 {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    .brand-title p {
+      margin: 0;
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    .nav-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .nav-btn {
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      padding: 8px 14px;
+      border-radius: 9px;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .nav-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .nav-btn.active {
+      background: #ffffff;
+      color: var(--navy-dark);
+      border-color: #ffffff;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Main Container */
+    .main-shell {
+      max-width: 1320px;
+      margin: 22px auto 48px;
+      padding: 0 18px;
+    }
+
+    .section-panel {
+      display: none;
+    }
+
+    .section-panel.active {
+      display: block;
+    }
+
+    .status-banner {
+      display: none;
+      margin-bottom: 16px;
+      padding: 12px 16px;
+      border-radius: 10px;
+      font-size: 13.5px;
+      font-weight: 600;
+      border: 1px solid transparent;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .status-banner.show {
+      display: flex;
+    }
+
+    .status-banner.info {
+      background: #eff6ff;
+      color: #1e3a8a;
+      border-color: #bfdbfe;
+    }
+
+    .status-banner.success {
+      background: #ecfdf5;
+      color: #065f46;
+      border-color: #a7f3d0;
+    }
+
+    .status-banner.warn {
+      background: #fffbeb;
+      color: #92400e;
+      border-color: #fde68a;
+    }
+
+    /* Editor Workspace */
+    .workspace-grid {
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    @media (max-width: 1050px) {
+      .workspace-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      box-shadow: var(--shadow-card);
+      padding: 18px;
+    }
+
+    .card-title {
+      margin: 0 0 14px;
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #eef2f6;
+      padding-bottom: 10px;
+    }
+
+    .form-group {
+      margin-bottom: 12px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 5px;
+    }
+
+    .form-control, .form-select {
+      width: 100%;
+      padding: 8px 11px;
+      border-radius: 8px;
+      border: 1px solid #cbd5e1;
+      font-family: inherit;
+      font-size: 13px;
+      color: var(--text-main);
+      background: #ffffff;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .form-control:focus, .form-select:focus {
+      outline: none;
+      border-color: var(--navy);
+      box-shadow: 0 0 0 3px rgba(15, 44, 89, 0.12);
+    }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 8px 13px;
+      border-radius: 9px;
+      border: 1px solid transparent;
+      font-family: inherit;
+      font-size: 12.5px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+
+    .btn-primary {
+      background: var(--navy);
+      color: #ffffff;
+    }
+
+    .btn-primary:hover {
+      background: var(--navy-dark);
+    }
+
+    .btn-crimson {
+      background: var(--crimson);
+      color: #ffffff;
+    }
+
+    .btn-crimson:hover {
+      background: var(--crimson-soft);
+    }
+
+    .btn-success {
+      background: #0f766e;
+      color: #ffffff;
+    }
+
+    .btn-success:hover {
+      background: #115e59;
+    }
+
+    .btn-outline {
+      background: #ffffff;
+      color: var(--navy);
+      border-color: #cbd5e1;
+    }
+
+    .btn-outline:hover {
+      background: #f8fafc;
+      border-color: var(--navy);
+    }
+
+    .btn-danger-outline {
+      background: #ffffff;
+      color: #b91c1c;
+      border-color: #fecaca;
+    }
+
+    .btn-danger-outline:hover {
+      background: #fef2f2;
+    }
+
+    /* Formatting Toolbar */
+    .format-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+      background: var(--surface-muted);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 8px 10px;
+      margin-bottom: 14px;
+    }
+
+    .fmt-btn {
+      min-width: 34px;
+      height: 32px;
+      padding: 0 8px;
+      border-radius: 7px;
+      border: 1px solid #cbd5e1;
+      background: #ffffff;
+      color: var(--text-main);
+      font-family: inherit;
+      font-size: 12.5px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .fmt-btn:hover {
+      background: #e2e8f0;
+    }
+
+    .fmt-divider {
+      width: 1px;
+      height: 22px;
+      background: #cbd5e1;
+      margin: 0 2px;
+    }
+
+    /* A4 Letterhead Paper */
+    .paper-stage {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow-x: auto;
+      padding-bottom: 12px;
+    }
+
+    .a4-sheet {
+      width: 210mm;
+      min-height: 297mm;
+      background: #ffffff;
+      box-shadow: var(--shadow-paper);
+      position: relative;
+      padding: 10mm 13mm 28mm 13mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1px solid #e2e8f0;
+    }
+
+    /* Top-right subtle corner accents like reference */
+    .top-corner-accent {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 72px;
+      height: 46px;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    /* Header Section */
+    .letterhead-header {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 12px;
+      padding-top: 2px;
+      padding-bottom: 8px;
+      position: relative;
+      z-index: 3;
+    }
+
+    .header-en {
+      text-align: left;
+      direction: ltr;
+      font-family: 'Inter', 'Cairo', sans-serif;
+    }
+
+    .header-en .company-en {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: 0.4px;
+      line-height: 1.2;
+      outline: none;
+    }
+
+    .header-en .tagline-en-red {
+      font-size: 10.5px;
+      font-weight: 700;
+      color: var(--crimson);
+      margin-top: 3px;
+      line-height: 1.25;
+      outline: none;
+    }
+
+    .header-en .tagline-en-sub {
+      font-size: 9.5px;
+      font-weight: 600;
+      color: #374151;
+      margin-top: 2px;
+      line-height: 1.25;
+      outline: none;
+    }
+
+    .header-logo-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .logo-frame {
+      width: 102px;
+      height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      cursor: pointer;
+      border-radius: 10px;
+      transition: transform 0.15s ease;
+    }
+
+    .logo-frame:hover {
+      transform: scale(1.02);
+    }
+
+    .logo-frame img, .logo-frame svg {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .header-ar {
+      text-align: right;
+      direction: rtl;
+    }
+
+    .header-ar .company-ar {
+      font-size: 15.5px;
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1.25;
+      outline: none;
+    }
+
+    .header-ar .tagline-ar-red {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--crimson);
+      margin-top: 3px;
+      line-height: 1.3;
+      outline: none;
+    }
+
+    .header-ar .tagline-ar-sub {
+      font-size: 10px;
+      font-weight: 600;
+      color: #374151;
+      margin-top: 2px;
+      line-height: 1.3;
+      outline: none;
+    }
+
+    .header-rule {
+      height: 2px;
+      background: linear-gradient(90deg, var(--navy) 0%, #245299 50%, var(--navy) 100%);
+      margin-bottom: 7px;
+    }
+
+    /* Metadata Row */
+    .meta-bar {
+      display: grid;
+      grid-template-columns: 1.15fr 1.1fr 0.75fr;
+      background: #f1f5f9;
+      border-top: 1px solid #cbd5e1;
+      border-bottom: 1px solid #cbd5e1;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--navy-dark);
+      margin-bottom: 14px;
+    }
+
+    .meta-cell {
+      padding: 5px 10px;
+      border-left: 1px solid #cbd5e1;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    .meta-cell:last-child {
+      border-left: none;
+    }
+
+    .meta-editable {
+      outline: none;
+      min-width: 55px;
+      color: #0f172a;
+      font-weight: 700;
+    }
+
+    /* Letter Body */
+    .letter-body-area {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      z-index: 3;
+    }
+
+    .letter-subject {
+      font-size: 14.5px;
+      font-weight: 800;
+      color: var(--navy);
+      text-align: center;
+      margin: 4px 0 12px;
+      padding-bottom: 6px;
+      border-bottom: 1.5px dashed #cbd5e1;
+      outline: none;
+    }
+
+    .letter-recipient {
+      font-size: 13px;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 10px;
+      line-height: 1.5;
+      outline: none;
+    }
+
+    .letter-content {
+      flex: 1;
+      min-height: 135mm;
+      font-size: 13.5px;
+      line-height: 1.85;
+      color: #111827;
+      outline: none;
+      padding: 4px 2px;
+    }
+
+    .letter-content p {
+      margin: 0 0 10px;
+    }
+
+    .letter-signoff {
+      margin-top: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 20px;
+      font-size: 12.5px;
+    }
+
+    .sign-block {
+      text-align: center;
+      min-width: 170px;
+      outline: none;
+    }
+
+    .sign-block .sign-role {
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 28px;
+    }
+
+    .sign-block .sign-name {
+      font-weight: 700;
+      color: #1f2937;
+      border-top: 1px solid #94a3b8;
+      padding-top: 4px;
+    }
+
+    /* Footer Matching Reference Stationery */
+    .letterhead-footer {
+      position: relative;
+      margin-top: 12px;
+      padding-top: 8px;
+      min-height: 54px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      z-index: 3;
+    }
+
+    .footer-contacts {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 18px 28px;
+      padding-bottom: 4px;
+      direction: ltr;
+      text-align: left;
+      font-family: 'Inter', 'Cairo', sans-serif;
+      max-width: 72%;
+    }
+
+    .contact-col {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .contact-line {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 10.2px;
+      font-weight: 600;
+      color: #1f2937;
+    }
+
+    .contact-icon {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--crimson);
+      color: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 9.5px;
+      flex-shrink: 0;
+    }
+
+    .contact-text {
+      outline: none;
+    }
+
+    .footer-wave-art {
+      position: absolute;
+      right: -13mm;
+      bottom: -28mm;
+      width: 118mm;
+      height: 46mm;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Templates & Archive & Settings Cards */
+    .templates-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+    }
+
+    .template-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: var(--shadow-card);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .template-card h3 {
+      margin: 0 0 6px;
+      font-size: 15px;
+      color: var(--navy);
+    }
+
+    .template-card p {
+      margin: 0;
+      font-size: 12.5px;
+      color: var(--text-muted);
+    }
+
+    .archive-table-wrap {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    th, td {
+      padding: 10px 12px;
+      border-bottom: 1px solid #e2e8f0;
+      text-align: right;
+    }
+
+    th {
+      background: #f1f5f9;
+      color: var(--navy);
+      font-weight: 800;
+    }
+
+    .settings-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 18px;
+    }
+
+    .helper-note {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 6px;
+    }
+
+    /* Print Styles */
+    @media print {
+      @page {
+        size: A4 portrait;
+        margin: 0;
+      }
+
+      body {
+        background: #ffffff !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+
+      .top-bar,
+      .status-banner,
+      .workspace-sidebar,
+      .format-toolbar,
+      .section-panel:not(#panel-editor) {
+        display: none !important;
+      }
+
+      .main-shell,
+      .workspace-grid,
+      .paper-stage {
+        margin: 0 !important;
+        padding: 0 !important;
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+
+      .a4-sheet {
+        width: 210mm !important;
+        min-height: 297mm !important;
+        box-shadow: none !important;
+        border: none !important;
+        margin: 0 auto !important;
+        page-break-after: always;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <header class="top-bar">
+    <div class="top-bar-inner">
+      <div class="brand-title">
+        <div class="brand-badge">NC</div>
+        <div>
+          <h1>بوابة الخطابات الرسمية — شركة نايس كير</h1>
+          <p>NICE CARE • نظام تحرير وإصدار وطباعة الخطابات الرسمية</p>
+        </div>
+      </div>
+
+      <nav class="nav-tabs" aria-label="أقسام الموقع">
+        <button class="nav-btn active" data-tab="editor" onclick="switchTab('editor')">محرر الخطاب</button>
+        <button class="nav-btn" data-tab="templates" onclick="switchTab('templates')">القوالب الجاهزة</button>
+        <button class="nav-btn" data-tab="archive" onclick="switchTab('archive')">سجل الخطابات (<span id="archiveCount">0</span>)</button>
+        <button class="nav-btn" data-tab="settings" onclick="switchTab('settings')">إعدادات الترويسة والتذليل</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-shell">
+    <!-- Status Banner -->
+    <div id="statusBanner" class="status-banner info" role="alert">
+      <span id="statusText"></span>
+      <button type="button" class="btn btn-outline" style="padding: 4px 10px; font-size: 11.5px;" onclick="hideStatus()">إغلاق</button>
+    </div>
+
+    <!-- SECTION 1: EDITOR -->
+    <section id="panel-editor" class="section-panel active">
+      <div class="workspace-grid">
+        <!-- Sidebar Controls -->
+        <aside class="card workspace-sidebar">
+          <h2 class="card-title">إجراءات الخطاب والبيانات</h2>
+
+          <div class="form-group">
+            <label for="quickTemplateSelect">اختيار قالب خطاب سريع</label>
+            <select id="quickTemplateSelect" class="form-select" onchange="applyTemplateById(this.value)">
+              <option value="">-- اختر قالب خطاب جاهز --</option>
+              <option value="official_request">طلب رسمي / اعتماد خدمات</option>
+              <option value="contract_proposal">عرض خدمات نظافة وتعقيم</option>
+              <option value="administrative_notice">إشعار إداري / متابعة تشغيلية</option>
+              <option value="blank_letter">خطاب رسمي فارغ</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="inputDate">التاريخ</label>
+            <input id="inputDate" type="text" class="form-control" value=".... / .... / 2026 م" oninput="syncMetaFromSidebar()" />
+          </div>
+
+          <div class="form-group">
+            <label for="inputRef">الرقم المرجعي</label>
+            <input id="inputRef" type="text" class="form-control" value="NC / 2026 / ......" oninput="syncMetaFromSidebar()" />
+          </div>
+
+          <div class="form-group">
+            <label for="inputAttachments">المرفقات</label>
+            <input id="inputAttachments" type="text" class="form-control" value="......................" oninput="syncMetaFromSidebar()" />
+          </div>
+
+          <div class="form-group">
+            <label for="inputSubject">موضوع الخطاب</label>
+            <input id="inputSubject" type="text" class="form-control" value="إفادة رسمية / متابعة خدمات النظافة والتعقيم" oninput="syncSubjectFromSidebar()" />
+          </div>
+
+          <div class="btn-row">
+            <button type="button" class="btn btn-primary" style="flex:1;" onclick="handlePrintAction()">طباعة / حفظ PDF</button>
+            <button type="button" class="btn btn-success" style="flex:1;" onclick="saveLetterToArchive()">حفظ في السجل</button>
+          </div>
+
+          <div class="btn-row">
+            <button type="button" class="btn btn-crimson" style="flex:1;" onclick="exportStandaloneHtml()">تصدير خطاب HTML</button>
+            <button type="button" class="btn btn-outline" style="flex:1;" onclick="copyLetterPlainText()">نسخ نص الخطاب</button>
+          </div>
+
+          <div class="btn-row">
+            <button type="button" class="btn btn-outline" style="flex:1;" onclick="openPrintPreviewTab()">فتح نافذة مستقلة</button>
+            <button type="button" class="btn btn-danger-outline" onclick="clearLetterBody()">تفريغ النص</button>
+          </div>
+
+          <p class="helper-note">
+            يمكنك النقر مباشرة على أي نص داخل الورقة الرسمية لتعديله، أو رفع شعار الشركة الخاص بك من تبويب "إعدادات الترويسة والتذليل".
+          </p>
+        </aside>
+
+        <!-- Paper Preview & Toolbar -->
+        <div class="paper-stage">
+          <div class="format-toolbar" aria-label="أدوات تنسيق النص">
+            <button type="button" class="fmt-btn" onclick="execFmt('bold')" title="عريض"><b>B</b></button>
+            <button type="button" class="fmt-btn" onclick="execFmt('italic')" title="مائل"><i>I</i></button>
+            <button type="button" class="fmt-btn" onclick="execFmt('underline')" title="تسطير"><u>U</u></button>
+            <div class="fmt-divider"></div>
+            <button type="button" class="fmt-btn" onclick="execFmt('justifyRight')" title="محاذاة لليمين">يمين</button>
+            <button type="button" class="fmt-btn" onclick="execFmt('justifyCenter')" title="توسيط">وسط</button>
+            <button type="button" class="fmt-btn" onclick="execFmt('justifyLeft')" title="محاذاة لليسار">يسار</button>
+            <div class="fmt-divider"></div>
+            <button type="button" class="fmt-btn" onclick="execFmt('insertUnorderedList')" title="قائمة نقطية">• قائمة</button>
+            <button type="button" class="fmt-btn" onclick="execFmt('insertOrderedList')" title="قائمة مرقمة">1. قائمة</button>
+            <div class="fmt-divider"></div>
+            <select id="fontSizeSelect" class="form-select" style="width:auto; padding:4px 8px; font-size:12px;" onchange="changeEditorFontSize(this.value)">
+              <option value="12.5px">خط 12.5</option>
+              <option value="13.5px" selected>خط 13.5</option>
+              <option value="15px">خط 15</option>
+              <option value="16.5px">خط 16.5</option>
+            </select>
+          </div>
+
+          <!-- A4 LETTERHEAD SHEET -->
+          <article id="letterSheet" class="a4-sheet">
+            <!-- Subtle top-right bubbles & stars accent -->
+            <svg class="top-corner-accent" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="96" cy="14" r="10" fill="#8b1e2b" opacity="0.85"/>
+              <circle cx="76" cy="8" r="5" fill="#0f2c59" opacity="0.85"/>
+              <circle cx="110" cy="34" r="6" fill="#0f2c59" opacity="0.75"/>
+              <circle cx="88" cy="31" r="4" fill="#8b1e2b" opacity="0.7"/>
+              <path d="M64 16L66.2 21.8L72 24L66.2 26.2L64 32L61.8 26.2L56 24L61.8 21.8L64 16Z" fill="#0f2c59" opacity="0.8"/>
+            </svg>
+
+            <div>
+              <!-- Header -->
+              <header class="letterhead-header">
+                <div class="header-en">
+                  <div id="hdrCompanyEn" class="company-en" contenteditable="true" oninput="saveHeaderFooterState()">NICE CARE</div>
+                  <div id="hdrTaglineEnRed" class="tagline-en-red" contenteditable="true" oninput="saveHeaderFooterState()">For Cleaning &amp; Hygiene Services</div>
+                  <div id="hdrTaglineEnSub" class="tagline-en-sub" contenteditable="true" oninput="saveHeaderFooterState()">Sparkle • Bubbles • Complete Care</div>
+                </div>
+
+                <div class="header-logo-box">
+                  <div id="logoFrame" class="logo-frame" title="انقر لتغيير الشعار" onclick="document.getElementById('logoUploadInput').click()">
+                    <!-- Default NICE CARE / نايس كير Emblem -->
+                    <svg id="defaultLogoSvg" viewBox="0 0 220 175" xmlns="http://www.w3.org/2000/svg">
+                      <!-- Top Bubbles & Stars -->
+                      <circle cx="62" cy="48" r="7" fill="#8b1e2b"/>
+                      <circle cx="78" cy="34" r="10" fill="#8b1e2b"/>
+                      <circle cx="98" cy="25" r="13" fill="#8b1e2b"/>
+                      <circle cx="118" cy="23" r="14" fill="#8b1e2b"/>
+                      <circle cx="138" cy="28" r="11" fill="#8b1e2b"/>
+                      <circle cx="155" cy="39" r="8" fill="#8b1e2b"/>
+                      <circle cx="87" cy="46" r="4.5" fill="#ffffff"/>
+                      <circle cx="112" cy="36" r="6" fill="#ffffff"/>
+                      <circle cx="132" cy="39" r="4.5" fill="#ffffff"/>
+                      <!-- Sparkle Stars -->
+                      <path d="M52 24L54.5 31.5L62 34L54.5 36.5L52 44L49.5 36.5L42 34L49.5 31.5L52 24Z" fill="#0f2c59"/>
+                      <path d="M74 14L75.6 18.4L80 20L75.6 21.6L74 26L72.4 21.6L68 20L72.4 18.4L74 14Z" fill="#8b1e2b"/>
+                      <path d="M168 20L169.8 25.2L175 27L169.8 28.8L168 34L166.2 28.8L161 27L166.2 25.2L168 20Z" fill="#0f2c59"/>
+                      <!-- Outer Navy Arc -->
+                      <path d="M162 56C182 74 184 108 164 132C140 160 88 166 54 144C32 130 24 102 34 76C39 63 48 54 58 48" stroke="#0f2c59" stroke-width="6.5" stroke-linecap="round" fill="none"/>
+                      <!-- Center Pill / Frame -->
+                      <rect x="44" y="54" width="132" height="62" rx="28" fill="#ffffff" stroke="#0f2c59" stroke-width="4.5"/>
+                      <!-- Arabic Text -->
+                      <text x="110" y="84" text-anchor="middle" font-family="Cairo, Tajawal, sans-serif" font-size="25" font-weight="800" fill="#8b1e2b">نايس كير</text>
+                      <!-- English Sub-badge -->
+                      <rect x="74" y="92" width="72" height="17" rx="8.5" fill="#0f2c59"/>
+                      <text x="110" y="104" text-anchor="middle" font-family="Inter, sans-serif" font-size="9.5" font-weight="800" fill="#ffffff" letter-spacing="0.5">NICE CARE</text>
+                      <!-- Lower Waves -->
+                      <path d="M46 122C74 136 124 135 162 118C140 138 86 146 46 122Z" fill="#0f2c59"/>
+                      <path d="M52 135C82 148 128 145 158 129C134 150 86 156 52 135Z" fill="#0f2c59"/>
+                      <path d="M62 147C88 156 122 153 146 141C124 156 90 161 62 147Z" fill="#8b1e2b"/>
+                    </svg>
+                  </div>
+                </div>
+
+                <div class="header-ar">
+                  <div id="hdrCompanyAr" class="company-ar" contenteditable="true" oninput="saveHeaderFooterState()">شركة نايس كير</div>
+                  <div id="hdrTaglineArRed" class="tagline-ar-red" contenteditable="true" oninput="saveHeaderFooterState()">لخدمات النظافة والتعقيم المتكاملة</div>
+                  <div id="hdrTaglineArSub" class="tagline-ar-sub" contenteditable="true" oninput="saveHeaderFooterState()">بريق ونظافة وعناية متكاملة</div>
+                </div>
+              </header>
+
+              <div class="header-rule"></div>
+
+              <!-- Metadata Bar -->
+              <div class="meta-bar">
+                <div class="meta-cell">
+                  <span>التاريخ:</span>
+                  <span id="metaDate" class="meta-editable" contenteditable="true" oninput="syncSidebarFromMeta()">.... / .... / 2026 م</span>
+                </div>
+                <div class="meta-cell">
+                  <span>الرقم المرجعي:</span>
+                  <span id="metaRef" class="meta-editable" contenteditable="true" oninput="syncSidebarFromMeta()">NC / 2026 / ......</span>
+                </div>
+                <div class="meta-cell">
+                  <span>المرفقات:</span>
+                  <span id="metaAttachments" class="meta-editable" contenteditable="true" oninput="syncSidebarFromMeta()">......................</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Body -->
+            <div class="letter-body-area">
+              <div id="letterSubject" class="letter-subject" contenteditable="true" oninput="syncSubjectFromPaper()">إفادة رسمية / متابعة خدمات النظافة والتعقيم</div>
+
+              <div id="letterRecipient" class="letter-recipient" contenteditable="true">
+                السادة / الإدارة الموقرة ................................................ المحترمين
+                <br />
+                تحية طيبة وبعد،،،
+              </div>
+
+              <div id="letterContent" class="letter-content" contenteditable="true">
+                <p>تهديكم <strong>شركة نايس كير لخدمات النظافة والتعقيم المتكاملة (NICE CARE)</strong> أطيب التحيات، ونفيدكم بأن فريق العمليات والمشرفين الميدانيين يواصل تنفيذ مهام النظافة والتعقيم وفق أعلى معايير الجودة والسلامة المهنية المعتمدة لدينا.</p>
+                <p>نرجو من سعادتكم الاطلاع على ما ورد أعلاه، وفي حال وجود أي ملاحظات تشغيلية أو متطلبات إضافية يرجى موافاتنا بها لتنفيذها فوراً بما يحقق أعلى مستويات الكفاءة والرضا.</p>
+                <p>وتقبلوا فائق الاحترام والتقدير،،،</p>
+              </div>
+
+              <div class="letter-signoff">
+                <div class="sign-block" contenteditable="true">
+                  <div class="sign-role">الإدارة التنفيذية</div>
+                  <div class="sign-name">شركة نايس كير • NICE CARE</div>
+                </div>
+                <div class="sign-block" contenteditable="true">
+                  <div class="sign-role">الختم والتوقيع المعتمد</div>
+                  <div class="sign-name">.................................</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Footer Matching Reference Image -->
+            <footer id="letterheadFooter" class="letterhead-footer">
+              <div class="footer-contacts">
+                <div class="contact-col">
+                  <div class="contact-line">
+                    <span class="contact-icon">☎</span>
+                    <span id="ftrPhone1" class="contact-text" contenteditable="true" oninput="saveHeaderFooterState()">+967 XXX XXX XXX</span>
+                  </div>
+                  <div class="contact-line">
+                    <span class="contact-icon">📱</span>
+                    <span id="ftrPhone2" class="contact-text" contenteditable="true" oninput="saveHeaderFooterState()">+967 77X XXX XXX</span>
+                  </div>
+                </div>
+
+                <div class="contact-col">
+                  <div class="contact-line">
+                    <span class="contact-icon">🌐</span>
+                    <span id="ftrWebsite" class="contact-text" contenteditable="true" oninput="saveHeaderFooterState()">www.nicecare-services.com</span>
+                  </div>
+                  <div class="contact-line">
+                    <span class="contact-icon">✉</span>
+                    <span id="ftrEmail" class="contact-text" contenteditable="true" oninput="saveHeaderFooterState()">info@nicecare-services.com</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Bottom-Right Crimson & Navy Waves + Bubbles + Sparkles -->
+              <svg class="footer-wave-art" viewBox="0 0 460 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Navy Wave -->
+                <path d="M35 125C120 135 215 110 295 82C350 63 405 56 460 64V180H35V125Z" fill="#0f2c59" opacity="0.92"/>
+                <!-- White Divider Wave -->
+                <path d="M55 144C140 152 230 128 315 102C365 86 415 80 460 88V180H55V144Z" fill="#ffffff"/>
+                <!-- Crimson Wave -->
+                <path d="M85 154C165 160 250 136 330 112C380 97 420 93 460 100V180H85V154Z" fill="#8b1e2b"/>
+                <!-- Bubbles Cluster -->
+                <circle cx="318" cy="112" r="14" fill="#8b1e2b"/>
+                <circle cx="342" cy="100" r="9" fill="#8b1e2b"/>
+                <circle cx="362" cy="116" r="16" fill="#0f2c59"/>
+                <circle cx="386" cy="96" r="11" fill="#8b1e2b"/>
+                <circle cx="296" cy="126" r="7" fill="#0f2c59"/>
+                <circle cx="332" cy="124" r="6" fill="#ffffff" opacity="0.85"/>
+                <!-- Sparkle Stars -->
+                <path d="M324 52L327.5 63.5L339 67L327.5 70.5L324 82L320.5 70.5L309 67L320.5 63.5L324 52Z" fill="#0f2c59"/>
+                <path d="M368 34L370 40L376 42L370 44L368 50L366 44L360 42L366 40L368 34Z" fill="#8b1e2b"/>
+                <path d="M294 74L295.6 78.4L300 80L295.6 81.6L294 86L292.4 81.6L288 80L292.4 78.4L294 74Z" fill="#0f2c59"/>
+              </svg>
+            </footer>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: TEMPLATES -->
+    <section id="panel-templates" class="section-panel">
+      <div class="card" style="margin-bottom: 18px;">
+        <h2 class="card-title" style="border:none; margin:0; padding:0;">القوالب الجاهزة للخطابات الرسمية</h2>
+        <p class="helper-note" style="margin-top: 6px;">اختر أي قالب ليتم تحميله مباشرة داخل المحرر مع الحفاظ الكامل على ترويسة وتذليل شركة نايس كير.</p>
+      </div>
+
+      <div class="templates-grid">
+        <div class="template-card">
+          <div>
+            <h3>طلب رسمي / اعتماد خدمات</h3>
+            <p>خطاب موجه للجهات أو العملاء لطلب اعتماد خطة تشغيلية أو توريد مواد ومستلزمات النظافة والتعقيم.</p>
+          </div>
+          <button type="button" class="btn btn-primary" onclick="loadTemplateAndGoEditor('official_request')">استخدام هذا القالب</button>
+        </div>
+
+        <div class="template-card">
+          <div>
+            <h3>عرض خدمات نظافة وتعقيم</h3>
+            <p>نموذج خطاب رسمي لتقديم خدمات النظافة والتعقيم الشاملة للمنشآت والمرافق الصحية والتجارية.</p>
+          </div>
+          <button type="button" class="btn btn-primary" onclick="loadTemplateAndGoEditor('contract_proposal')">استخدام هذا القالب</button>
+        </div>
+
+        <div class="template-card">
+          <div>
+            <h3>إشعار إداري / متابعة تشغيلية</h3>
+            <p>خطاب متابعة ميدانية وإدارية لتأكيد الالتزام بمعايير النظافة والسلامة والجداول الزمنية المعتمدة.</p>
+          </div>
+          <button type="button" class="btn btn-primary" onclick="loadTemplateAndGoEditor('administrative_notice')">استخدام هذا القالب</button>
+        </div>
+
+        <div class="template-card">
+          <div>
+            <h3>خطاب رسمي فارغ</h3>
+            <p>ورقة رسمية نظيفة بالترويسة والتذليل لكتابة خطاب مخصص من الصفر حسب الحاجة.</p>
+          </div>
+          <button type="button" class="btn btn-outline" onclick="loadTemplateAndGoEditor('blank_letter')">فتح صفحة فارغة</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: ARCHIVE -->
+    <section id="panel-archive" class="section-panel">
+      <div class="card">
+        <h2 class="card-title">
+          <span>سجل الخطابات المحفوظة محلياً</span>
+          <button type="button" class="btn btn-danger-outline" onclick="clearAllArchive()">مسح السجل بالكامل</button>
+        </h2>
+        <div class="archive-table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>الرقم المرجعي</th>
+                <th>التاريخ</th>
+                <th>موضوع الخطاب</th>
+                <th>وقت الحفظ</th>
+                <th>الإجراءات</th>
+              </tr>
+            </thead>
+            <tbody id="archiveTableBody">
+              <tr>
+                <td colspan="5" style="text-align:center; color:#64748b; padding:24px;">لا توجد خطابات محفوظة حالياً في السجل.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: HEADER & FOOTER SETTINGS -->
+    <section id="panel-settings" class="section-panel">
+      <div class="card">
+        <h2 class="card-title">إعدادات الترويسة والتذليل وشعار الشركة</h2>
+
+        <div class="settings-grid">
+          <div>
+            <div class="form-group">
+              <label for="setCompanyAr">اسم الشركة بالعربية</label>
+              <input id="setCompanyAr" type="text" class="form-control" oninput="applySettingsInputs()" />
+            </div>
+            <div class="form-group">
+              <label for="setTaglineArRed">الوصف الرئيسي بالعربية (أحمر)</label>
+              <input id="setTaglineArRed" type="text" class="form-control" oninput="applySettingsInputs()" />
+            </div>
+            <div class="form-group">
+              <label for="setTaglineArSub">الشعار اللفظي بالعربية</label>
+              <input id="setTaglineArSub" type="text" class="form-control" oninput="applySettingsInputs()" />
+            </div>
+          </div>
+
+          <div>
+            <div class="form-group">
+              <label for="setCompanyEn">اسم الشركة بالإنجليزية</label>
+              <input id="setCompanyEn" type="text" class="form-control" dir="ltr" oninput="applySettingsInputs()" />
+            </div>
+            <div class="form-group">
+              <label for="setTaglineEnRed">الوصف الرئيسي بالإنجليزية (أحمر)</label>
+              <input id="setTaglineEnRed" type="text" class="form-control" dir="ltr" oninput="applySettingsInputs()" />
+            </div>
+            <div class="form-group">
+              <label for="setTaglineEnSub">الشعار اللفظي بالإنجليزية</label>
+              <input id="setTaglineEnSub" type="text" class="form-control" dir="ltr" oninput="applySettingsInputs()" />
+            </div>
+          </div>
+
+          <div>
+            <div class="form-group">
+              <label for="setPhone1">رقم الهاتف / المكتب الأول</label>
+              <input id="setPhone1" type="text" class="form-control" dir="ltr" oninput="applySettingsInputs()" />
+            </div>
+            <div class="form-group">
+              <label for="setPhone2">رقم الجوال / التواصل الثاني</label>
+              <input id="setPhone2" type="text" class="form-control" dir="ltr" oninput="applySettingsInputs()" />
+            </div>
+            <div class="form-group">
+              <label for="setWebsite">الموقع الإلكتروني</label>
+              <input id="setWebsite" type="text" class="form-control" dir="ltr" oninput="applySettingsInputs()" />
+            </div>
+            <div class="form-group">
+              <label for="setEmail">البريد الإلكتروني</label>
+              <input id="setEmail" type="text" class="form-control" dir="ltr" oninput="applySettingsInputs()" />
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group" style="margin-top: 12px;">
+          <label for="logoUploadInput">رفع شعار مخصص (PNG / JPG / SVG)</label>
+          <input id="logoUploadInput" type="file" accept="image/*" class="form-control" onchange="handleLogoUpload(event)" />
+        </div>
+
+        <div class="btn-row">
+          <button type="button" class="btn btn-outline" onclick="resetDefaultLogo()">استعادة الشعار الافتراضي</button>
+          <button type="button" class="btn btn-primary" onclick="switchTab('editor')">العودة إلى المحرر</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const STORAGE_KEYS = {
+      ARCHIVE: 'nice_care_letters_archive_v1',
+      SETTINGS: 'nice_care_stationery_settings_v1',
+      LOGO: 'nice_care_custom_logo_v1'
+    };
+
+    const TEMPLATES = {
+      official_request: {
+        subject: 'طلب رسمي / اعتماد خطة خدمات النظافة والتعقيم',
+        recipient: 'السادة / إدارة ................................................ المحترمين<br />تحية طيبة وبعد،،،',
+        content:
+          '<p>تهديكم <strong>شركة نايس كير لخدمات النظافة والتعقيم المتكاملة (NICE CARE)</strong> أطيب التحيات، ونفيدكم برغبتنا في اعتماد خطة التشغيل والنظافة الدورية للموقع المحدد وفق المعايير المعتمدة.</p>' +
+          '<p>يرجى من سعادتكم التكرم بالاطلاع والموافقة على ما ورد في هذا الخطاب لاستكمال الإجراءات التنفيذية والبدء الفوري وفق الجدول الزمني المتفق عليه.</p>' +
+          '<p>شاكرين ومقدرين حسن تعاونكم الدائم،،،</p>'
+      },
+      contract_proposal: {
+        subject: 'عرض خدمات النظافة والتعقيم المتكاملة',
+        recipient: 'السادة / الإدارة العامة لـ ........................................ المحترمين<br />تحية طيبة وبعد،،،',
+        content:
+          '<p>يسر <strong>شركة نايس كير لخدمات النظافة والتعقيم المتكاملة (NICE CARE)</strong> أن تتقدم إلى سعادتكم بهذا الخطاب الرسمي لتقديم خدمات النظافة والتعقيم الشاملة والمتابعة الميدانية المستمرة.</p>' +
+          '<p>تشمل خدماتنا كوادر مدربة، ومواد تنظيف وتعقيم معتمدة، وجداول تشغيل منتظمة تضمن أعلى مستويات الجاهزية والمظهر الحضاري للمنشأة.</p>' +
+          '<p>وتفضلوا بقبول فائق الاحترام والتقدير،،،</p>'
+      },
+      administrative_notice: {
+        subject: 'إشعار إداري / متابعة الأداء التشغيلي وجودة النظافة',
+        recipient: 'السادة / المعنيون بمتابعة الخدمات ................................ المحترمين<br />تحية طيبة وبعد،،،',
+        content:
+          '<p>تهديكم <strong>شركة نايس كير (NICE CARE)</strong> أطيب التحيات، ونحيطكم علماً بأنه تم إجراء المتابعة التشغيلية الدورية والاطمئنان على سير العمل والالتزام بمعايير النظافة والسلامة.</p>' +
+          '<p>نؤكد حرصنا المستمر على معالجة أي ملاحظات أولاً بأول والارتقاء بجودة الخدمات المقدمة بما يتوافق مع تطلعاتكم.</p>' +
+          '<p>مع خالص التقدير،،،</p>'
+      },
+      blank_letter: {
+        subject: 'عنوان الخطاب الرسمي',
+        recipient: 'السادة / ........................................................ المحترمين<br />تحية طيبة وبعد،،،',
+        content: '<p>اكتب نص الخطاب الرسمي هنا...</p>'
+      }
+    };
+
+    function showStatus(message, type = 'info') {
+      const banner = document.getElementById('statusBanner');
+      const text = document.getElementById('statusText');
+      banner.className = `status-banner show ${type}`;
+      text.textContent = message;
+    }
+
+    function hideStatus() {
+      document.getElementById('statusBanner').classList.remove('show');
+    }
+
+    function switchTab(tabName) {
+      document.querySelectorAll('.nav-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.tab === tabName);
+      });
+      document.querySelectorAll('.section-panel').forEach(panel => {
+        panel.classList.toggle('active', panel.id === `panel-${tabName}`);
+      });
+      if (tabName === 'archive') {
+        renderArchiveTable();
+      }
+      if (tabName === 'settings') {
+        populateSettingsInputs();
+      }
+    }
+
+    function syncMetaFromSidebar() {
+      document.getElementById('metaDate').textContent = document.getElementById('inputDate').value;
+      document.getElementById('metaRef').textContent = document.getElementById('inputRef').value;
+      document.getElementById('metaAttachments').textContent = document.getElementById('inputAttachments').value;
+    }
+
+    function syncSidebarFromMeta() {
+      document.getElementById('inputDate').value = document.getElementById('metaDate').textContent;
+      document.getElementById('inputRef').value = document.getElementById('metaRef').textContent;
+      document.getElementById('inputAttachments').value = document.getElementById('metaAttachments').textContent;
+    }
+
+    function syncSubjectFromSidebar() {
+      document.getElementById('letterSubject').textContent = document.getElementById('inputSubject').value;
+    }
+
+    function syncSubjectFromPaper() {
+      document.getElementById('inputSubject').value = document.getElementById('letterSubject').textContent;
+    }
+
+    function applyTemplateById(id) {
+      if (!id || !TEMPLATES[id]) return;
+      const tpl = TEMPLATES[id];
+      document.getElementById('letterSubject').textContent = tpl.subject;
+      document.getElementById('inputSubject').value = tpl.subject;
+      document.getElementById('letterRecipient').innerHTML = tpl.recipient;
+      document.getElementById('letterContent').innerHTML = tpl.content;
+      showStatus('تم تحميل القالب المختار داخل الورقة الرسمية.', 'success');
+    }
+
+    function loadTemplateAndGoEditor(id) {
+      applyTemplateById(id);
+      document.getElementById('quickTemplateSelect').value = id;
+      switchTab('editor');
+    }
+
+    function clearLetterBody() {
+      document.getElementById('letterContent').innerHTML = '<p><br /></p>';
+      document.getElementById('letterContent').focus();
+      showStatus('تم تفريغ محتوى الخطاب.', 'info');
+    }
+
+    function execFmt(command) {
+      document.getElementById('letterContent').focus();
+      document.execCommand(command, false, null);
+    }
+
+    function changeEditorFontSize(size) {
+      document.getElementById('letterContent').style.fontSize = size;
+    }
+
+    function saveHeaderFooterState() {
+      const data = {
+        companyAr: document.getElementById('hdrCompanyAr').textContent,
+        taglineArRed: document.getElementById('hdrTaglineArRed').textContent,
+        taglineArSub: document.getElementById('hdrTaglineArSub').textContent,
+        companyEn: document.getElementById('hdrCompanyEn').textContent,
+        taglineEnRed: document.getElementById('hdrTaglineEnRed').textContent,
+        taglineEnSub: document.getElementById('hdrTaglineEnSub').textContent,
+        phone1: document.getElementById('ftrPhone1').textContent,
+        phone2: document.getElementById('ftrPhone2').textContent,
+        website: document.getElementById('ftrWebsite').textContent,
+        email: document.getElementById('ftrEmail').textContent
+      };
+      try {
+        localStorage.setItem(STORAGE_KEYS.SETTINGS, JSON.stringify(data));
+      } catch (e) {}
+    }
+
+    function loadHeaderFooterState() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEYS.SETTINGS);
+        if (!raw) return;
+        const data = JSON.parse(raw);
+        if (data.companyAr) document.getElementById('hdrCompanyAr').textContent = data.companyAr;
+        if (data.taglineArRed) document.getElementById('hdrTaglineArRed').textContent = data.taglineArRed;
+        if (data.taglineArSub) document.getElementById('hdrTaglineArSub').textContent = data.taglineArSub;
+        if (data.companyEn) document.getElementById('hdrCompanyEn').textContent = data.companyEn;
+        if (data.taglineEnRed) document.getElementById('hdrTaglineEnRed').textContent = data.taglineEnRed;
+        if (data.taglineEnSub) document.getElementById('hdrTaglineEnSub').textContent = data.taglineEnSub;
+        if (data.phone1) document.getElementById('ftrPhone1').textContent = data.phone1;
+        if (data.phone2) document.getElementById('ftrPhone2').textContent = data.phone2;
+        if (data.website) document.getElementById('ftrWebsite').textContent = data.website;
+        if (data.email) document.getElementById('ftrEmail').textContent = data.email;
+      } catch (e) {}
+    }
+
+    function populateSettingsInputs() {
+      document.getElementById('setCompanyAr').value = document.getElementById('hdrCompanyAr').textContent;
+      document.getElementById('setTaglineArRed').value = document.getElementById('hdrTaglineArRed').textContent;
+      document.getElementById('setTaglineArSub').value = document.getElementById('hdrTaglineArSub').textContent;
+      document.getElementById('setCompanyEn').value = document.getElementById('hdrCompanyEn').textContent;
+      document.getElementById('setTaglineEnRed').value = document.getElementById('hdrTaglineEnRed').textContent;
+      document.getElementById('setTaglineEnSub').value = document.getElementById('hdrTaglineEnSub').textContent;
+      document.getElementById('setPhone1').value = document.getElementById('ftrPhone1').textContent;
+      document.getElementById('setPhone2').value = document.getElementById('ftrPhone2').textContent;
+      document.getElementById('setWebsite').value = document.getElementById('ftrWebsite').textContent;
+      document.getElementById('setEmail').value = document.getElementById('ftrEmail').textContent;
+    }
+
+    function applySettingsInputs() {
+      document.getElementById('hdrCompanyAr').textContent = document.getElementById('setCompanyAr').value;
+      document.getElementById('hdrTaglineArRed').textContent = document.getElementById('setTaglineArRed').value;
+      document.getElementById('hdrTaglineArSub').textContent = document.getElementById('setTaglineArSub').value;
+      document.getElementById('hdrCompanyEn').textContent = document.getElementById('setCompanyEn').value;
+      document.getElementById('hdrTaglineEnRed').textContent = document.getElementById('setTaglineEnRed').value;
+      document.getElementById('hdrTaglineEnSub').textContent = document.getElementById('setTaglineEnSub').value;
+      document.getElementById('ftrPhone1').textContent = document.getElementById('setPhone1').value;
+      document.getElementById('ftrPhone2').textContent = document.getElementById('setPhone2').value;
+      document.getElementById('ftrWebsite').textContent = document.getElementById('setWebsite').value;
+      document.getElementById('ftrEmail').textContent = document.getElementById('setEmail').value;
+      saveHeaderFooterState();
+    }
+
+    function applyCustomLogoDataUrl(dataUrl) {
+      const frame = document.getElementById('logoFrame');
+      frame.innerHTML = `<img src="${dataUrl}" alt="شعار الشركة" />`;
+    }
+
+    function handleLogoUpload(event) {
+      const file = event.target.files && event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const result = e.target.result;
+        applyCustomLogoDataUrl(result);
+        try {
+          localStorage.setItem(STORAGE_KEYS.LOGO, result);
+        } catch (err) {}
+        showStatus('تم تحديث شعار الشركة بنجاح.', 'success');
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function resetDefaultLogo() {
+      try {
+        localStorage.removeItem(STORAGE_KEYS.LOGO);
+      } catch (e) {}
+      location.reload();
+    }
+
+    function loadSavedLogo() {
+      try {
+        const savedLogo = localStorage.getItem(STORAGE_KEYS.LOGO);
+        if (savedLogo) {
+          applyCustomLogoDataUrl(savedLogo);
+        }
+      } catch (e) {}
+    }
+
+    function getArchiveList() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEYS.ARCHIVE);
+        return raw ? JSON.parse(raw) : [];
+      } catch (e) {
+        return [];
+      }
+    }
+
+    function setArchiveList(list) {
+      try {
+        localStorage.setItem(STORAGE_KEYS.ARCHIVE, JSON.stringify(list));
+      } catch (e) {}
+      updateArchiveBadge();
+    }
+
+    function updateArchiveBadge() {
+      document.getElementById('archiveCount').textContent = getArchiveList().length;
+    }
+
+    function saveLetterToArchive() {
+      const list = getArchiveList();
+      const item = {
+        id: 'ltr_' + Date.now(),
+        ref: document.getElementById('metaRef').textContent.trim() || 'بدون رقم',
+        date: document.getElementById('metaDate').textContent.trim() || 'بدون تاريخ',
+        attachments: document.getElementById('metaAttachments').textContent.trim() || '',
+        subject: document.getElementById('letterSubject').textContent.trim() || 'خطاب رسمي',
+        recipientHtml: document.getElementById('letterRecipient').innerHTML,
+        contentHtml: document.getElementById('letterContent').innerHTML,
+        savedAt: new Date().toLocaleString('ar-YE')
+      };
+      list.unshift(item);
+      setArchiveList(list);
+      showStatus('تم حفظ الخطاب في سجل الخطابات المحلي.', 'success');
+    }
+
+    function renderArchiveTable() {
+      const tbody = document.getElementById('archiveTableBody');
+      const list = getArchiveList();
+      if (!list.length) {
+        tbody.innerHTML = '<tr><td colspan="5" style="text-align:center; color:#64748b; padding:24px;">لا توجد خطابات محفوظة حالياً في السجل.</td></tr>';
+        return;
+      }
+      tbody.innerHTML = list.map(item => `
+        <tr>
+          <td>${escapeHtml(item.ref)}</td>
+          <td>${escapeHtml(item.date)}</td>
+          <td><strong>${escapeHtml(item.subject)}</strong></td>
+          <td>${escapeHtml(item.savedAt)}</td>
+          <td>
+            <div style="display:flex; gap:6px; flex-wrap:wrap;">
+              <button type="button" class="btn btn-primary" style="padding:5px 10px; font-size:11.5px;" onclick="loadArchivedLetter('${item.id}')">فتح في المحرر</button>
+              <button type="button" class="btn btn-danger-outline" style="padding:5px 10px; font-size:11.5px;" onclick="deleteArchivedLetter('${item.id}')">حذف</button>
+            </div>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    function loadArchivedLetter(id) {
+      const item = getArchiveList().find(x => x.id === id);
+      if (!item) return;
+      document.getElementById('metaRef').textContent = item.ref;
+      document.getElementById('inputRef').value = item.ref;
+      document.getElementById('metaDate').textContent = item.date;
+      document.getElementById('inputDate').value = item.date;
+      if (item.attachments) {
+        document.getElementById('metaAttachments').textContent = item.attachments;
+        document.getElementById('inputAttachments').value = item.attachments;
+      }
+      document.getElementById('letterSubject').textContent = item.subject;
+      document.getElementById('inputSubject').value = item.subject;
+      document.getElementById('letterRecipient').innerHTML = item.recipientHtml;
+      document.getElementById('letterContent').innerHTML = item.contentHtml;
+      switchTab('editor');
+      showStatus('تم تحميل الخطاب المحفوظ داخل المحرر.', 'success');
+    }
+
+    function deleteArchivedLetter(id) {
+      const filtered = getArchiveList().filter(x => x.id !== id);
+      setArchiveList(filtered);
+      renderArchiveTable();
+      showStatus('تم حذف الخطاب من السجل.', 'info');
+    }
+
+    function clearAllArchive() {
+      setArchiveList([]);
+      renderArchiveTable();
+      showStatus('تم مسح جميع الخطابات المحفوظة.', 'info');
+    }
+
+    function escapeHtml(str) {
+      return String(str || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    function buildPrintableDocumentHtml() {
+      const sheetClone = document.getElementById('letterSheet').cloneNode(true);
+      sheetClone.querySelectorAll('[contenteditable]').forEach(el => {
+        el.removeAttribute('contenteditable');
+        el.removeAttribute('oninput');
+      });
+      sheetClone.querySelectorAll('[onclick]').forEach(el => el.removeAttribute('onclick'));
+
+      const subjectText = document.getElementById('letterSubject').textContent.trim() || 'خطاب رسمي - شركة نايس كير';
+      const headStyles = Array.from(document.querySelectorAll('style')).map(s => s.innerHTML).join('
+');
+
+      return `<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>${escapeHtml(subjectText)}</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    ${headStyles}
+    body {
+      background: #ffffff;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+    }
+    .a4-sheet {
+      margin: 0 auto;
+      box-shadow: none;
+      border: none;
+    }
+    @page {
+      size: A4 portrait;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  ${sheetClone.outerHTML}
+  <script>
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        try { window.print(); } catch (e) {}
+      }, 300);
+    });
+  <\/script>
+</body>
+</html>`;
+    }
+
+    function openPrintPreviewTab() {
+      try {
+        const html = buildPrintableDocumentHtml();
+        const blob = new Blob([html], { type: 'text/html;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const win = window.open(url, '_blank');
+        if (!win) {
+          showStatus('يرجى السماح بفتح النوافذ المنبثقة أو استخدام زر تصدير خطاب HTML.', 'warn');
+          return;
+        }
+        showStatus('تم فتح الخطاب في نافذة مستقلة للطباعة أو الحفظ كـ PDF.', 'success');
+      } catch (err) {
+        showStatus('تعذر فتح نافذة مستقلة، يمكنك استخدام تصدير خطاب HTML.', 'warn');
+      }
+    }
+
+    function exportStandaloneHtml() {
+      try {
+        const html = buildPrintableDocumentHtml();
+        const blob = new Blob([html], { type: 'text/html;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        const safeRef = (document.getElementById('metaRef').textContent || 'letter')
+          .trim()
+          .replace(/[\/:*?"<>|]+/g, '-');
+        a.href = url;
+        a.download = `nice-care-letter-${safeRef}.html`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+        showStatus('تم تنزيل ملف الخطاب الجاهز للطباعة بصيغة HTML.', 'success');
+      } catch (err) {
+        showStatus('تعذر تصدير الملف في هذا المتصفح.', 'warn');
+      }
+    }
+
+    function copyLetterPlainText() {
+      const subject = document.getElementById('letterSubject').innerText.trim();
+      const recipient = document.getElementById('letterRecipient').innerText.trim();
+      const content = document.getElementById('letterContent').innerText.trim();
+      const signoff = Array.from(document.querySelectorAll('.sign-block'))
+        .map(b => b.innerText.trim())
+        .join('
+
+');
+      const fullText = [subject, recipient, content, signoff].filter(Boolean).join('
+
+');
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(fullText).then(() => {
+          showStatus('تم نسخ نص الخطاب إلى الحافظة.', 'success');
+        }).catch(() => {
+          fallbackCopyText(fullText);
+        });
+      } else {
+        fallbackCopyText(fullText);
+      }
+    }
+
+    function fallbackCopyText(text) {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      try {
+        document.execCommand('copy');
+        showStatus('تم نسخ نص الخطاب إلى الحافظة.', 'success');
+      } catch (e) {
+        showStatus('تعذر النسخ التلقائي، يمكنك تحديد النص ونسخه يدوياً.', 'warn');
+      }
+      document.body.removeChild(ta);
+    }
+
+    function handlePrintAction() {
+      try {
+        window.print();
+      } catch (e) {
+        showStatus('إذا لم تظهر نافذة الطباعة، استخدم "فتح نافذة مستقلة" أو "تصدير خطاب HTML".', 'warn');
+      }
+    }
+
+    // Initialize
+    loadHeaderFooterState();
+    loadSavedLogo();
+    updateArchiveBadge();
+  </script>
+</body>
+</html>
